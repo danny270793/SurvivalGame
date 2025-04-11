@@ -8,9 +8,29 @@ public class PlayerMovementManager : MonoBehaviour
     void moveBasedOnKeyboard()
     {
         float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(moveX, 0, 0);
+        Vector3 move = new Vector3(moveX, 0, moveZ);
         transform.Translate(move * moveSpeed * Time.deltaTime);
+    }
+
+    // show
+    public float distanceInFront = 0f;
+    public float speed = 5f;
+
+    void shot()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 spawnPosition = transform.position + transform.forward * distanceInFront;
+            
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.position = spawnPosition;
+            cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            cube.AddComponent<BulletMovementManager>();
+            // cube.AddComponent<Rigidbody>();
+            cube.name = "Bullet";
+        }
     }
 
     //main
@@ -22,5 +42,6 @@ public class PlayerMovementManager : MonoBehaviour
     void Update()
     {
         moveBasedOnKeyboard();
+        shot();
     }
 }
