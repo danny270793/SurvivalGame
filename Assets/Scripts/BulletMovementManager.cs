@@ -15,7 +15,7 @@ public class BulletMovementManager : MonoBehaviour
         RaycastHit hit;
 
         Vector3 direction = transform.forward;
-        float timeAhead = 1f;
+        float timeAhead = 2f;
 
         float distance = speed * timeAhead;
 
@@ -23,6 +23,10 @@ public class BulletMovementManager : MonoBehaviour
         {
             if(hit.collider.name == "Enemy")
             {
+                GameObject hitObject = hit.collider.gameObject;
+                EnemyMovementController enemy = hitObject.GetComponent<EnemyMovementController>();
+                enemy.reduceLife();
+
                 Destroy(gameObject);
             }
         }
