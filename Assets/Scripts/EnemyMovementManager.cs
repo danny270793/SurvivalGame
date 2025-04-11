@@ -33,6 +33,7 @@ public class EnemyMovementController : MonoBehaviour
     {
         Vector3 move = new Vector3(0, 0, -1);
         transform.Translate(move * moveSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.identity;
     }
 
     // main

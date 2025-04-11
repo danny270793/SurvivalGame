@@ -14,11 +14,11 @@ public class PlayerMovementManager : MonoBehaviour
         transform.Translate(move * moveSpeed * Time.deltaTime);
     }
 
-    // show
+    // shot
     public float distanceInFront = 0f;
     public float speed = 5f;
 
-    void shot()
+    void shotIfPlayerWants()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -28,7 +28,6 @@ public class PlayerMovementManager : MonoBehaviour
             cube.transform.position = spawnPosition;
             cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             cube.AddComponent<BulletMovementManager>();
-            // cube.AddComponent<Rigidbody>();
             cube.name = "Bullet";
         }
     }
@@ -42,6 +41,6 @@ public class PlayerMovementManager : MonoBehaviour
     void Update()
     {
         moveBasedOnKeyboard();
-        shot();
+        shotIfPlayerWants();
     }
 }
