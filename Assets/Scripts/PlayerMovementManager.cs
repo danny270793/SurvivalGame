@@ -26,7 +26,7 @@ public class PlayerMovementManager : MonoBehaviour
             
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.position = spawnPosition;
-            cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            cube.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             cube.AddComponent<BulletMovementManager>();
             cube.name = "Bullet";
         }
