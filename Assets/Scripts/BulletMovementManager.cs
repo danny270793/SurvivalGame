@@ -5,7 +5,7 @@ public class BulletMovementManager : MonoBehaviour
     // collision
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Enemy")
+        if(collision.gameObject.name == Constants.ENEMY)
         {
             Destroy(gameObject);
 

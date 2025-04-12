@@ -28,7 +28,7 @@ public class PlayerMovementManager : MonoBehaviour
             cube.transform.position = spawnPosition;
             cube.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             cube.AddComponent<BulletMovementManager>();
-            cube.name = "Bullet";
+            cube.name = Constants.BULLET;
         }
     }
 
