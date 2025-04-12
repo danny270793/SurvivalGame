@@ -31,8 +31,8 @@ public class EnemySpawnmer : MonoBehaviour
         // cube.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
         cube.AddComponent<EnemyMovementController>();
         cube.AddComponent<Rigidbody>();
-        //Rigidbody rb = cube.AddComponent<Rigidbody>();
-        //rb.mass = 200f;
+        // Rigidbody rb = cube.AddComponent<Rigidbody>();
+        // rb.mass = 200f;
         cube.name = Constants.ENEMY;
 
         spawnedEnemies += 1;
