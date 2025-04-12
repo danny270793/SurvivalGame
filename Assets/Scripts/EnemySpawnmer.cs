@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemySpawnmer : MonoBehaviour
 {
+    public int level = 1;
+    public int spawnedEnemies = 0;
     public float spawnInterval = 1f;
     private float timer;
 
@@ -30,13 +32,20 @@ public class EnemySpawnmer : MonoBehaviour
         cube.AddComponent<EnemyMovementController>();
         cube.AddComponent<Rigidbody>();
         cube.name = Constants.ENEMY;
+
+        spawnedEnemies += 1;
+        if(spawnedEnemies > 5)
+        {
+            level += 1;
+            spawnedEnemies = 0;
+        }
     }
 
     void createEnemyOnInterval()
     {
         timer += Time.deltaTime;
 
-        if (timer >= spawnInterval)
+        if (timer >= spawnInterval/level)
         {
             SpawnEnemy();
             timer = 0f;
