@@ -2,6 +2,16 @@ using UnityEngine;
 
 public class EnemyMovementController : MonoBehaviour
 {
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision with=" + collision.gameObject.name);
+        if(collision.gameObject.name == Constants.BARRIER)
+        {
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
     // life
     public int life = 100;
 
